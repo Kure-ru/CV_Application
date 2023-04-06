@@ -1,0 +1,149 @@
+@import "reset-css";
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap");
+
+:root {
+  --font: "Be Vietnam Pro", sans-serif;
+}
+
+#root {
+  font-family: var(--font);
+  font-size: 18px;
+  padding: 50px;
+}
+
+/* BASE STYLE */
+
+button {
+  background: none;
+  margin: 8px 0;
+  font-family: var(--font);
+  font-weight: 700;
+  border: 3px solid black;
+}
+
+button:hover{
+  cursor: pointer;
+  background: black;
+  color: white;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 8px;
+}
+
+h2 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+
+}
+
+h3 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p, li{
+  text-align: justify;
+  line-height: 2;
+}
+
+h1, h2, h3, h4, p {
+  padding: 1rem 0;
+}
+
+li {
+  padding-bottom: 1rem;
+}
+/* DISPLAY */
+
+main{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  padding: 1rem 5%;
+}
+
+.top,
+.pro,
+.ref
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding-right: 5rem;
+}
+
+
+/* HEADER */
+
+header{
+  border-bottom: 2px solid rgb(227, 224, 224);
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.top__titre{
+  margin-top: -1.5rem;
+}
+
+/* PRO EXP */
+
+.sub__title{
+  border-bottom: .5rem double black;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pro__experience{
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(215, 215, 215);
+  margin-bottom: 1.5rem;
+}
+
+.experience__title{
+  padding: 0;
+  font-weight: 700;
+}
+
+.experience__date{
+  text-transform: uppercase;
+  font-size: .8rem;
+  padding-top: 8px;
+}
+
+.pro__experience li, .experience__description {
+  color: rgb(134, 134, 134);
+}
+
+.experience__description{
+  padding-top: 0;
+}
+
+/* FORM  */
+form {
+  display: flex;
+  background: rgb(244, 247, 220);
+  padding: 2rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  color: rgb(82, 81, 81);
+  gap: 8px;
+}
