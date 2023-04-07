@@ -7,6 +7,7 @@ import ProfessionalExp from './components/ProfessionalExp'
 import Formations from './components/Formations'
 import Contact from './components/Contact'
 import Competences from './components/Competences'
+import Langues from './components/Langues'
 
 function App() {
 const [profile, setProfile] = useState({})
@@ -14,6 +15,7 @@ const [jobExp, setJobExp] = useState({})
 const [formations, setFormations] = useState({})
 const [contact, setContact] = useState({})
 const [skill, setSkill] = useState({})
+const [languages, setLanguages] = useState({})
 
   return (
     <>
@@ -28,13 +30,8 @@ const [skill, setSkill] = useState({})
         </div>
         <section className='right-column' >
           <Contact contact={contact} setContact={setContact}/>
-          <Competences skill={skill} setSkills={setSkill}/>
-          <div className='sub__title'>
-            <h3>Education</h3>
-          </div>
-          <h4 className="experience__title">Université Trop cool</h4>
-          <p className='experience__date'>1111-2015</p>
-          <p className='experience__description'  >licence d'informatique</p>
+          <Competences skill={skill} setSkill={setSkill}/>
+          <Langues languages={languages} setLanguages={setLanguages}/>
         </section>
       </main>
     </>
