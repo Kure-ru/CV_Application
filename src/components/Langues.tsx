@@ -4,31 +4,33 @@ import Form from "./Form"
 
 const Langues = ({ languages, setLanguages }) => {
 
-    const [showForm, setShowForm] = useState(false)
-    const formQuestions = ["langue"]
-    const addNew:boolean = true 
-    const handleClick = () => {
-        console.log('click')
-        setShowForm(true)
+  const [showForm, setShowForm] = useState(false)
+  const formQuestions = ["langue"]
+  const handleClick = () => {
+    setShowForm(true)
+  }
+
+  const handleDelete = (index:number) => {
+    setLanguages(current => current.filter((language, i) => i !== index))
     }
 
-    console.log(languages.langue)
   return (
     <>
-    <div className='sub__title'>
-            <h3>Langues</h3>
-            <button onClick={handleClick} >AJOUTER</button>
-          </div>
-            <ul>
-                {Object.keys(languages).length >= 1 && languages.map((language:any) => {
-                    return (
-                        <li key={language.key}>{language.langue}</li>
-                    )
-                })}
-               
-            </ul>
-            { showForm ? <Form variable={languages} setVariable={setLanguages} setShowForm={setShowForm} formQuestions={formQuestions} addNew={addNew}/> : null }
-          </>
+      <div className='sub__title'>
+        <h3>Langues</h3>
+        <button onClick={handleClick} >AJOUTER</button>
+      </div>
+      <ul>
+        {languages
+          .map((language, index) => {
+            return (
+              <li onClick={() => handleDelete(index)} key={index}>{language.langue}</li>)
+          })
+        }
+
+      </ul>
+      {showForm ? <Form variable={languages} setVariable={setLanguages} setShowForm={setShowForm} formQuestions={formQuestions} addNew={true} /> : null}
+    </>
   )
 }
 

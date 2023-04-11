@@ -1,59 +1,51 @@
-import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 
 const Form = ({ setShowForm, variable, setVariable, formQuestions, addNew }) => {
-const [input, setInput] = useState({})
+    const [input, setInput] = useState({})
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
         setShowForm(false)
+        if (!addNew){
+            setVariable(input)
+        }
     }
 
-    const updateProfile = (e: any) => {
+    const addToList = (e: any) => {
+        const newObj = {}
+        formQuestions.forEach((question) => {
+            newObj[question] = input[question]
+        });
+
+        const updatedVariable = [...variable, newObj]; //ajouter newObject à la copie de variable 
+        setVariable(updatedVariable)
+        console.log(variable)
+        setInput({})
+    }
+
+    const handleInputChange = (e: any) => {
+        const { name, value } = e.target
         setInput({
             ...input,
-            [e.target.name]: e.target.value
+            [name]: value,
         })
+        console.log(input)
     }
 
-    const handleAdd = (e:any) => {
-        
-        setVariable({
-            ...variable,
-            [uuidv4()]: input
-        })
-        console.log(variable)
-    }
+    return (
+        <form method="post" onSubmit={handleSubmit}>
+            {formQuestions.map((question, index) => {
+                return (
+                    <div key={index}>
+                        <label>{question}</label>
+                        <input onChange={handleInputChange} value={input[question] || ''} name={question}></input>
+                    </div>)
 
-
-    if (!addNew) {
-        return (
-            <form method="post" onSubmit={handleSubmit}>
-                {formQuestions.map((question, index) => {
-                    return (
-                        <div key={index}>
-                            <label>{question}</label>
-                            <input onChange={updateProfile} name={question}></input>
-                        </div>)
-                })}
-                <button type="submit">CONFIRMER</button>
-            </form>
-        )
-    }
-    else {
-        return (
-            <form method="post" onSubmit={handleSubmit}>
-                {formQuestions.map((question, index) => {
-                    return (
-                        <div key={index}>
-                            <label>{question}</label>
-                            <input onChange={updateProfile} name={question}></input>
-                        </div>)
-                })}
-                <button type="button" onClick={handleAdd}>+</button><button type="submit">CONFIRMER</button>
-            </form>
-        )
-    }
+            })}
+            {addNew ? <button type='button' onClick={addToList}>+</button> : null}
+            <button type="submit">CONFIRMER</button>
+        </form>
+    )
 }
 
 
