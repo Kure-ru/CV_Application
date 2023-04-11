@@ -6,7 +6,7 @@ const Form = ({ setShowForm, variable, setVariable, formQuestions, addNew }) => 
     const handleSubmit = (e: any) => {
         e.preventDefault();
         setShowForm(false)
-        if (!addNew){
+        if (!addNew) {
             setVariable(input)
         }
     }

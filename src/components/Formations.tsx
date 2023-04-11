@@ -10,9 +10,9 @@ const Formations = ({ formations, setFormations }) => {
     setShowForm(true)
   }
 
-  const handleDelete = (index:number) => {
+  const handleDelete = (index: number) => {
     setFormations(current => current.filter((formation, i) => i !== index))
-    }
+  }
 
   return (
     <section className='ref'>
@@ -22,7 +22,7 @@ const Formations = ({ formations, setFormations }) => {
       </div>
       {formations.map((formation, index) => {
         return (
-          <div key={index}  onClick={() => handleDelete(index)} className='pro__experience'>
+          <div key={index} onClick={() => handleDelete(index)} className='pro__experience'>
             <h4 className='experience__title'>{formation["nom de la formation"]}</h4>
             <p className='experience__date'>{formation.date}</p>
             <ul>

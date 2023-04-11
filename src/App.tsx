@@ -1,5 +1,4 @@
 import { useContext, useState } from 'react'
-import { data } from './utils/CVData'
 import { PersonalInfo } from './components/PersonalInfo'
 
 import './App.css'
@@ -8,8 +7,6 @@ import Formations from './components/Formations'
 import Contact from './components/Contact'
 import Competences from './components/Competences'
 import Langues from './components/Langues'
-
-import JsPDF from 'jspdf';
 
 
 function App() {
@@ -20,23 +17,11 @@ function App() {
   const [skills, setSkills] = useState([])
   const [languages, setLanguages] = useState([])
 
-
-  const generatePDF = () => {
-
-    const pdf = new JsPDF('portrait', 'pt', 'a4');
-
-    pdf.html(document.querySelector('main') as HTMLElement)
-      .then(() => {
-        pdf.save('moncvfacile.pdf');
-      })
-  }
-
-
   return (
     <>
       <header>
         <h1>MONCVFACILE</h1>
-          <button onClick={generatePDF} type="button">Exporter PDF</button>
+        <button onClick={generatePDF} type="button">Exporter PDF</button>
       </header>
       <main>
         <div>
