@@ -66,6 +66,20 @@ li {
 }
 /* DISPLAY */
 
+.profile__container{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.profile__container button {
+  height: 2rem;
+}
+.profile_pic{
+  width: 200px;
+  height: 200px;
+}
+
 main{
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -148,10 +162,30 @@ form div {
   gap: 8px;
 }
 
+/* GUIDE */
+
+.guide{
+  position: absolute;
+  left: 20%;
+  padding: 1rem;
+  border: solid 3px black;
+  background: rgb(172, 197, 213);
+  box-shadow: 20px 20px 0px 3px rgba(0,0,0,1);
+  display: flex;
+  flex-direction: column;
+}
+
+.guide button {
+  width: 33%;
+  min-width: 580px;
+  align-self: center;
+  font-size: 1.5rem;
+}
+
 /* PRINT  */
 
 @media print {
-  button, header {
+  button, header, form {
     display: none;
   }
 
@@ -163,4 +197,5 @@ form div {
   #profile__title{
     display: none;
   }
+
 }

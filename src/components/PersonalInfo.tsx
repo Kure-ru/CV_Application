@@ -12,7 +12,6 @@ export const PersonalInfo = ({ profile, setProfile }) => {
   console.log(profile)
   return (
     <section className='top'>
-
       <div id="profile__title" className='sub__title'>
         <h3>Profil</h3>
         <button onClick={handleClick} >EDITER</button>

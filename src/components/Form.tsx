@@ -19,7 +19,6 @@ const Form = ({ setShowForm, variable, setVariable, formQuestions, addNew }) => 
 
         const updatedVariable = [...variable, newObj]; //ajouter newObject à la copie de variable 
         setVariable(updatedVariable)
-        console.log(variable)
         setInput({})
     }
 
@@ -29,7 +28,6 @@ const Form = ({ setShowForm, variable, setVariable, formQuestions, addNew }) => 
             ...input,
             [name]: value,
         })
-        console.log(input)
     }
 
     return (

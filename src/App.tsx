@@ -7,7 +7,8 @@ import Formations from './components/Formations'
 import Contact from './components/Contact'
 import Competences from './components/Competences'
 import Langues from './components/Langues'
-
+import Guide from './components/Guide'
+import Avatar from './components/Avatar'
 
 function App() {
   const [profile, setProfile] = useState([])
@@ -21,15 +22,16 @@ function App() {
     <>
       <header>
         <h1>MONCVFACILE</h1>
-        <button onClick={generatePDF} type="button">Exporter PDF</button>
       </header>
       <main>
+        <Guide/>
         <div>
           <PersonalInfo profile={profile} setProfile={setProfile} />
           <ProfessionalExp jobExp={jobExp} setJobExp={setJobExp} />
           <Formations formations={formations} setFormations={setFormations} />
         </div>
         <section className='right-column' >
+          <Avatar/>
           <Contact contact={contact} setContact={setContact} />
           <Competences skills={skills} setSkills={setSkills} />
           <Langues languages={languages} setLanguages={setLanguages} />
