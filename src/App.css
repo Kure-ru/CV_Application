@@ -66,13 +66,13 @@ li {
 }
 /* DISPLAY */
 
-.profile__container{
+.pic__container{
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.profile__container button {
+.pic__container button {
   height: 2rem;
 }
 .profile_pic{
@@ -81,23 +81,41 @@ li {
 }
 
 main{
+  width: 595px;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 3rem;
+  grid-template-areas: 
+  "profile profile"
+  "left right";
   padding: 1rem 5%;
 }
 
+.left-column{
+  grid-area: left;
+}
+
+.right-column{
+  grid-area: right;
+}
 .top,
 .pro,
 .ref
 {
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
   align-items: stretch;
-  padding-right: 5rem;
 }
 
+.pro,
+.ref{
+  flex-direction: column;
+}
+
+.top{
+  width: 100%;
+  grid-area: profile;
+}
 
 /* HEADER */
 
@@ -107,10 +125,27 @@ header{
   margin-bottom: 3rem;
 }
 
-.top__titre{
-  margin-top: -1.5rem;
+/* PROFILE */
+
+.profile__container{
+  margin: 0 2rem 0 6rem;
 }
 
+.top__titre{
+  text-align: center;
+padding: 2rem;
+margin-bottom: 1rem;
+  background-color: rgb(228, 210, 76);
+}
+
+.container__bio{
+  padding: 3rem;
+  border: solid black 5px;
+}
+
+.top{
+  border-bottom: .5rem double black;
+}
 /* PRO EXP */
 
 .sub__title{
@@ -119,6 +154,8 @@ header{
   display: flex;
   justify-content: space-between;
 }
+
+
 
 .pro__experience{
   padding: 1rem 0;

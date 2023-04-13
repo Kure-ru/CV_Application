@@ -8,7 +8,6 @@ import Contact from './components/Contact'
 import Competences from './components/Competences'
 import Langues from './components/Langues'
 import Guide from './components/Guide'
-import Avatar from './components/Avatar'
 
 function App() {
   const [profile, setProfile] = useState([])
@@ -25,13 +24,13 @@ function App() {
       </header>
       <main>
         <Guide/>
-        <div>
+
           <PersonalInfo profile={profile} setProfile={setProfile} />
+          <div className='left-column'>
           <ProfessionalExp jobExp={jobExp} setJobExp={setJobExp} />
           <Formations formations={formations} setFormations={setFormations} />
-        </div>
+          </div>
         <section className='right-column' >
-          <Avatar/>
           <Contact contact={contact} setContact={setContact} />
           <Competences skills={skills} setSkills={setSkills} />
           <Langues languages={languages} setLanguages={setLanguages} />

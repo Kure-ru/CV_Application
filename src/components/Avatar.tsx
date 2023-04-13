@@ -17,8 +17,8 @@ function Avatar() {
   };
 
   return (
-    <div className='profile__container'>
-      <button onClick={handleClick}>Select Image</button>
+    <div className='pic__container'>
+      <button onClick={handleClick}>Ajouter une photo</button>
       <input
         type="file"
         ref={fileInputRef}

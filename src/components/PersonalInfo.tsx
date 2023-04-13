@@ -1,4 +1,6 @@
 import { useState } from "react"
+import Avatar from "./Avatar"
+
 import Form from "./Form"
 export const PersonalInfo = ({ profile, setProfile }) => {
   const [showForm, setShowForm] = useState(false)
@@ -12,14 +14,19 @@ export const PersonalInfo = ({ profile, setProfile }) => {
   console.log(profile)
   return (
     <section className='top'>
-      <div id="profile__title" className='sub__title'>
-        <h3>Profil</h3>
-        <button onClick={handleClick} >EDITER</button>
+      <div>
+        <Avatar />
+        <h2>{profile.nom}</h2>
       </div>
-      <h2>{profile.nom}</h2>
-      <h3 className='top__titre'>{profile['titre professionnel']}</h3>
-      <p>{profile.description}</p>
-      {showForm ? <Form variable={profile} setVariable={setProfile} setShowForm={setShowForm} formQuestions={formQuestions}/> : null}
+
+      <div className="profile__container">
+        <h3 className='top__titre'>{profile['titre professionnel']}</h3>
+        <p className="container__bio">{profile.description}</p>
+        {showForm ? <Form variable={profile} setVariable={setProfile} setShowForm={setShowForm} formQuestions={formQuestions} /> : null}
+        <button onClick={handleClick} >EDITER PROFIL</button>
+      </div>
+
+
     </section>
   )
 }
