@@ -35,9 +35,9 @@ export interface jobExp {
   }
 
   export interface ContactProps {
-    contact: Contact;
-    setContact: React.Dispatch<React.SetStateAction<Contact>>;
-}
+    contact: Contact[],
+    setContact: React.Dispatch<React.SetStateAction<Contact[]>>
+  }
 
 export interface Profile {
     "nom": string;
@@ -68,3 +68,12 @@ export interface Profile {
     skills: Competences[];
     setSkills: React.Dispatch<React.SetStateAction<Competences[]>>
   }
+
+  export interface FormProps {
+    setShowForm: React.Dispatch<React.SetStateAction<boolean>>,
+    variable: any[],
+    setVariable: React.Dispatch<React.SetStateAction<any[]>>,
+    formQuestions: string[],
+    addNew?: boolean
+}
+

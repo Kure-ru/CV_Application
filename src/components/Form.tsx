@@ -1,18 +1,22 @@
 import { useState } from 'react';
+import { FormProps } from '../utils/interfaces';
 
-const Form = ({ setShowForm, variable, setVariable, formQuestions, addNew }) => {
-    const [input, setInput] = useState({})
+type InputObject = { [key: string]: any }
+const Form = ({ setShowForm, variable, setVariable, formQuestions, addNew }: FormProps) => {
+    const [input, setInput] = useState<InputObject>({})
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setShowForm(false)
         if (!addNew) {
-            setVariable(input)
+            setVariable([input])
+        } else {
+            setVariable((prevVariable) => [...prevVariable, input])
         }
     }
 
-    const addToList = (e: any) => {
-        const newObj = {}
+    const addToList = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        const newObj: { [key: string]: any } = {}
         formQuestions.forEach((question) => {
             newObj[question] = input[question]
         });
@@ -22,7 +26,7 @@ const Form = ({ setShowForm, variable, setVariable, formQuestions, addNew }) => 
         setInput({})
     }
 
-    const handleInputChange = (e: any) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
         setInput({
             ...input,

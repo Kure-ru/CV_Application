@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Form from "./Form"
-import { ContactProps } from "../utils/interfaces"
+import { Dispatch, SetStateAction } from "react";
+import { ContactProps, Contact } from "../utils/interfaces"
 
 const ContactInfo = ({ contact, setContact }: ContactProps) => {
     const [showForm, setShowForm] = useState<boolean>(false)
@@ -8,9 +9,12 @@ const ContactInfo = ({ contact, setContact }: ContactProps) => {
     const formQuestions: string[] = ["numéro de téléphone", "adresse email", "site web", "linkedIn", "Twitter"]
 
     const handleClick = () => {
-        console.log('click')
         setShowForm(true)
     }
+
+    const contactArray = Object.entries(contact).map(([key, value]) => ({
+        [key]: value,
+    }))
     return (
         <>
                 <h3>Contact</h3>
@@ -23,7 +27,13 @@ const ContactInfo = ({ contact, setContact }: ContactProps) => {
                 <li>{contact.linkedIn}</li>
                 <li>{contact.Twitter}</li>
             </ul>
-            {showForm ? <Form variable={contact} setVariable={setContact} setShowForm={setShowForm} formQuestions={formQuestions} addNew={false} /> : null}
+            {showForm ? <Form 
+                variable={contactArray} 
+                setVariable={setContact as Dispatch<SetStateAction<Contact[]>>}  
+                setShowForm={setShowForm} 
+                formQuestions={formQuestions} 
+                addNew={false} 
+                /> : null}
         </>
     )
 }
