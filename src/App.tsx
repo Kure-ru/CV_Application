@@ -10,7 +10,6 @@ import Langues from './components/Langues'
 import Guide from './components/Guide'
 import { jobExp, Profile, Formation, Contact, Language, Competences } from './utils/interfaces'
 
-
 function App() {
   const [profile, setProfile] = useState<Profile>({"nom": "", "titre professionnel": "", "description": ""})
   const [jobExp, setJobExp] = useState<jobExp[]>([])
