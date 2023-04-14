@@ -13,22 +13,22 @@ export const PersonalInfo: React.FC<ProfileProps> = ({ profile, setProfile }) =>
   }
 
   return (
-    <section className='top'>
+    <section className='top' >
+    <Avatar />
+    <div className="top__right" >
       {profile.map((p) => (
-        <>
-        <div key={p.id}>
-          <Avatar />
+        <div  key={p.nom}>
           <h2>{p.nom}</h2>
+          <div className="profile__container">
+            <h3 className='top__titre'>{p['titre professionnel']}</h3>
+            <p className="container__bio">{p.description}</p>
+          </div>
         </div>
-         <div className="profile__container">
-         <h3 className='top__titre'>{p['titre professionnel']}</h3>
-         <p className="container__bio">{p.description}</p>
-         {showForm ? <Form variable={profile} setVariable={setProfile} setShowForm={setShowForm} formQuestions={formQuestions} addNew={false} /> : null}
-         <button onClick={handleClick} >EDITER PROFIL</button>
-       </div>
-       </>
-      ))}
-    </section>
-  )
+          ))}
+          {showForm ? <Form variable={profile} setVariable={setProfile} setShowForm={setShowForm} formQuestions={formQuestions} addNew={false} /> : null}
+          <button onClick={handleClick} >EDITER PROFIL</button>
+    </div>
+          </section>
+      )
 }
 
