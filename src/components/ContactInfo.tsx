@@ -1,9 +1,9 @@
 import { useState } from "react"
 import Form from "./Form"
-import { Dispatch, SetStateAction } from "react";
-import { ContactProps, Contact } from "../utils/interfaces"
+import { ContactProps } from "../utils/interfaces"
 
-const ContactInfo = ({ contact, setContact }: ContactProps) => {
+
+const ContactInfo: React.FC<ContactProps> = ({ contact, setContact }) => {
     const [showForm, setShowForm] = useState<boolean>(false)
 
     const formQuestions: string[] = ["numéro de téléphone", "adresse email", "site web", "linkedIn", "Twitter"]
@@ -12,28 +12,27 @@ const ContactInfo = ({ contact, setContact }: ContactProps) => {
         setShowForm(true)
     }
 
-    const contactArray = Object.entries(contact).map(([key, value]) => ({
-        [key]: value,
-    }))
     return (
         <>
-                <h3>Contact</h3>
-                <button onClick={handleClick} >EDITER</button>
+            <h3>Contact</h3>
+            <button onClick={handleClick} >EDITER</button>
+            {contact.map((c) => (
+                <ul>
+                    <li>{c["numéro de téléphone"]}</li>
+                    <li>{c["adresse email"]}</li>
+                    <li>{c["site web"]}</li>
+                    <li>{c.linkedIn}</li>
+                    <li>{c.Twitter}</li>
+                </ul>
+            ))}
 
-            <ul>
-                <li>{contact["numéro de téléphone"]}</li>
-                <li>{contact["adresse email"]}</li>
-                <li>{contact["site web"]}</li>
-                <li>{contact.linkedIn}</li>
-                <li>{contact.Twitter}</li>
-            </ul>
-            {showForm ? <Form 
-                variable={contactArray} 
-                setVariable={setContact as Dispatch<SetStateAction<Contact[]>>}  
-                setShowForm={setShowForm} 
-                formQuestions={formQuestions} 
-                addNew={false} 
-                /> : null}
+            {showForm ? <Form
+                variable={contact}
+                setVariable={setContact}
+                setShowForm={setShowForm}
+                formQuestions={formQuestions}
+                addNew={false}
+            /> : null}
         </>
     )
 }

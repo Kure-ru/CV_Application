@@ -11,7 +11,7 @@ import Guide from './components/Guide'
 import { jobExp, Profile, Formation, Contact, Language, Competences } from './utils/interfaces'
 
 function App() {
-  const [profile, setProfile] = useState<Profile>({ "nom": "", "titre professionnel": "", "description": "" })
+  const [profile, setProfile] = useState<Profile[]>([])
   const [jobExp, setJobExp] = useState<jobExp[]>([])
   const [formations, setFormations] = useState<Formation[]>([])
   const [contact, setContact] = useState<Contact[]>([])

@@ -26,12 +26,12 @@ export interface jobExp {
   }
 
  export interface Contact {
+  "id": number;
     "numéro de téléphone": string;
     "adresse email": string;
     "site web": string;
     linkedIn: string;
     Twitter: string;
-    [key: string]: string;
   }
 
   export interface ContactProps {
@@ -40,15 +40,15 @@ export interface jobExp {
   }
 
 export interface Profile {
+  "id": number;
     "nom": string;
     "titre professionnel": string;
     "description": string;
-    [key: string]: string;
   }
   
  export interface ProfileProps {
-    profile: Profile;
-    setProfile: React.Dispatch<React.SetStateAction<Profile>>
+    profile: Profile[];
+    setProfile: React.Dispatch<React.SetStateAction<Profile[]>>
   }
 
   export interface Language {
