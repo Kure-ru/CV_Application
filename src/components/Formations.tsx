@@ -1,10 +1,11 @@
 import { useState } from "react"
 import Form from "./Form"
+import { FormationProps } from "../utils/interfaces"
 
-const Formations = ({ formations, setFormations }) => {
-  const [showForm, setShowForm] = useState(false)
+const Formations: React.FC<FormationProps> = ({ formations, setFormations }) => {
+  const [showForm, setShowForm] = useState<boolean>(false)
 
-  const formQuestions = ["nom de la formation", "date", "contenu de la formation"]
+  const formQuestions = ["nom de la formation", "date de début", "date de fin", "contenu de la formation"]
 
   const handleClick = () => {
     setShowForm(true)
@@ -16,21 +17,28 @@ const Formations = ({ formations, setFormations }) => {
 
   return (
     <section className='ref'>
-      <div className='sub__title'>
+
         <h3>Formations</h3>
         <button onClick={handleClick} >EDITER</button>
-      </div>
+
       {formations.map((formation, index) => {
         return (
           <div key={index} onClick={() => handleDelete(index)} className='pro__experience'>
+             <div className='experience__date'>
+                  {formation["date de début"]} <br/>
+                  {formation["date de fin"]}
+                </div>
+                <div>
             <h4 className='experience__title'>{formation["nom de la formation"]}</h4>
-            <p className='experience__date'>{formation.date}</p>
+
             <ul>
               <li>{formation["contenu de la formation"]}</li>
             </ul>
+            </div>
           </div>
         )
       })}
+
 
       {showForm ? <Form variable={formations} setVariable={setFormations} setShowForm={setShowForm} formQuestions={formQuestions} addNew={true} /> : null}
     </section>

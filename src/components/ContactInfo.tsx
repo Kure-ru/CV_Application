@@ -1,10 +1,11 @@
 import { useState } from "react"
 import Form from "./Form"
+import { ContactProps } from "../utils/interfaces"
 
-const Contact = ({ contact, setContact }) => {
-    const [showForm, setShowForm] = useState(false)
+const ContactInfo = ({ contact, setContact }: ContactProps) => {
+    const [showForm, setShowForm] = useState<boolean>(false)
 
-    const formQuestions = ["numéro de téléphone", "adresse email", "site web", "linkedIn", "Twitter"]
+    const formQuestions: string[] = ["numéro de téléphone", "adresse email", "site web", "linkedIn", "Twitter"]
 
     const handleClick = () => {
         console.log('click')
@@ -12,10 +13,9 @@ const Contact = ({ contact, setContact }) => {
     }
     return (
         <>
-            <div className='sub__title'>
                 <h3>Contact</h3>
                 <button onClick={handleClick} >EDITER</button>
-            </div>
+
             <ul>
                 <li>{contact["numéro de téléphone"]}</li>
                 <li>{contact["adresse email"]}</li>
@@ -23,8 +23,8 @@ const Contact = ({ contact, setContact }) => {
                 <li>{contact.linkedIn}</li>
                 <li>{contact.Twitter}</li>
             </ul>
-            {showForm ? <Form variable={contact} setVariable={setContact} setShowForm={setShowForm} formQuestions={formQuestions} /> : null}
+            {showForm ? <Form variable={contact} setVariable={setContact} setShowForm={setShowForm} formQuestions={formQuestions} addNew={false} /> : null}
         </>
     )
 }
-export default Contact
+export default ContactInfo

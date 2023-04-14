@@ -9,6 +9,7 @@
   font-family: var(--font);
   font-size: 18px;
   padding: 50px;
+  background: rgb(255, 255, 201);
 }
 
 /* BASE STYLE */
@@ -57,7 +58,7 @@ p, li{
   line-height: 2;
 }
 
-h1, h2, h3, h4, p {
+h1, h2, h3, h4 {
   padding: 1rem 0;
 }
 
@@ -68,12 +69,8 @@ li {
 
 .pic__container{
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: space-between;
-}
-
-.pic__container button {
-  height: 2rem;
 }
 .profile_pic{
   width: 200px;
@@ -81,8 +78,11 @@ li {
 }
 
 main{
+  margin: 0 auto;
+  background: white;
   width: 595px;
   display: grid;
+  gap: 2rem;
   grid-template-columns: 2fr 1fr;
   grid-template-areas: 
   "profile profile"
@@ -102,7 +102,6 @@ main{
 .ref
 {
   display: flex;
-
   justify-content: center;
   align-items: stretch;
 }
@@ -120,7 +119,7 @@ main{
 /* HEADER */
 
 header{
-  border-bottom: 2px solid rgb(227, 224, 224);
+  border-bottom: 2px solid rgb(186, 182, 123);
   padding-bottom: 2rem;
   margin-bottom: 3rem;
 }
@@ -129,6 +128,7 @@ header{
 
 .profile__container{
   margin: 0 2rem 0 6rem;
+  flex-basis: 60%;
 }
 
 .top__titre{
@@ -139,7 +139,7 @@ margin-bottom: 1rem;
 }
 
 .container__bio{
-  padding: 3rem;
+  padding: 1rem;
   border: solid black 5px;
 }
 
@@ -158,6 +158,8 @@ margin-bottom: 1rem;
 
 
 .pro__experience{
+  display: flex;
+  align-items: center;
   padding: 1rem 0;
   border-bottom: 1px solid rgb(215, 215, 215);
   margin-bottom: 1.5rem;
@@ -169,9 +171,16 @@ margin-bottom: 1rem;
 }
 
 .experience__date{
-  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
   font-size: .8rem;
-  padding-top: 8px;
+  padding: 1rem;
+  background:rgb(228, 210, 76);
+  border-radius: 50%;
+  margin-right: 3rem;
 }
 
 .pro__experience li, .experience__description {

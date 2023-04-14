@@ -1,21 +1,23 @@
-import { useContext, useState } from 'react'
-import { PersonalInfo } from './components/PersonalInfo'
-
 import './App.css'
+
+import { useState } from 'react'
+import { PersonalInfo } from './components/PersonalInfo'
 import ProfessionalExp from './components/ProfessionalExp'
 import Formations from './components/Formations'
-import Contact from './components/Contact'
-import Competences from './components/Competences'
+import ContactInfo from './components/ContactInfo'
+import CompetencesInfo from './components/CompetencesInfo'
 import Langues from './components/Langues'
 import Guide from './components/Guide'
+import { jobExp, Profile, Formation, Contact, Language, Competences } from './utils/interfaces'
+
 
 function App() {
-  const [profile, setProfile] = useState([])
-  const [jobExp, setJobExp] = useState([])
-  const [formations, setFormations] = useState([])
-  const [contact, setContact] = useState({})
-  const [skills, setSkills] = useState([])
-  const [languages, setLanguages] = useState([])
+  const [profile, setProfile] = useState<Profile>({"nom": "", "titre professionnel": "", "description": ""})
+  const [jobExp, setJobExp] = useState<jobExp[]>([])
+  const [formations, setFormations] = useState<Formation[]>([])
+  const [contact, setContact] = useState<Contact>({ "numéro de téléphone": "", "adresse email":"", "site web": "", linkedIn: "", Twitter: ""})
+  const [skills, setSkills] = useState<Competences[]>([])
+  const [languages, setLanguages] = useState<Language[]>([])
 
   return (
     <>
@@ -31,8 +33,8 @@ function App() {
           <Formations formations={formations} setFormations={setFormations} />
           </div>
         <section className='right-column' >
-          <Contact contact={contact} setContact={setContact} />
-          <Competences skills={skills} setSkills={setSkills} />
+          <ContactInfo contact={contact} setContact={setContact} />
+          <CompetencesInfo skills={skills} setSkills={setSkills} />
           <Langues languages={languages} setLanguages={setLanguages} />
         </section>
       </main>

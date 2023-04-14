@@ -6,9 +6,8 @@ const Guide = () => {
     const handleClick = () => {
         setShowGuide(false)
     }
-    if (showGuide){
-    return(
-        showGuide &&
+ 
+    return showGuide ? (
        <div className='guide'>
             <h2>Bienvenue sur MonCVFacile !</h2>
             <ol>
@@ -18,7 +17,7 @@ const Guide = () => {
             </ol>
                <button onClick={handleClick}>commencer</button>
         </div>
-    )
-}}
+    ) : null
+}
 
 export default Guide

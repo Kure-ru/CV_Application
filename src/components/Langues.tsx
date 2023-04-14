@@ -1,8 +1,8 @@
 import { useState } from "react"
-
 import Form from "./Form"
+import { LanguageProps } from "../utils/interfaces"
 
-const Langues = ({ languages, setLanguages }) => {
+const Langues = ({ languages, setLanguages }: LanguageProps) => {
 
   const [showForm, setShowForm] = useState(false)
   const formQuestions = ["langue"]
@@ -16,10 +16,8 @@ const Langues = ({ languages, setLanguages }) => {
 
   return (
     <>
-      <div className='sub__title'>
         <h3>Langues</h3>
         <button onClick={handleClick} >AJOUTER</button>
-      </div>
       <ul>
         {languages
           .map((language, index) => {
